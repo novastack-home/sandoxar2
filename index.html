@@ -14,14 +14,14 @@
 <body>
   <div id="card">
     <model-viewer 
-    src="./assets/house-copy.glb" 
+    src="./assets/house.glb" 
     ar
     ar-modes="webxr scene-viewer quick-look"
     ar-scale="auto"
     camera-controls
     alt="A 3D model carousel"
-    ios-src = "./assets/house-copy.usdz" 
-    poster="./assets/house-copy.png" 
+    ios-src = "./assets/house_init.usdz" 
+    poster="./assets/house.png" 
     shadow-intensity="1" 
     >
   
@@ -35,7 +35,7 @@
     
       <div class="slider">
         <div class="slides">
-          <button class="slide selected" onclick="switchSrc(this, 'house')" style="background-image: url('./assets/house.png');">
+          <button class="slide" onclick="switchSrc(this, 'house')" style="background-image: url('./assets/house.png');">
     
           </button><button class="slide" onclick="switchSrc(this, 'house-2')" style="background-image: url('./assets/house-2.png');">
     
