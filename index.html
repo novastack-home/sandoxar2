@@ -23,7 +23,7 @@
     alt="A 3D model carousel">
   
       <button slot="ar-button" id="ar-button">
-        View in your space
+        View
       </button>
     
       <div id="ar-prompt">
@@ -54,6 +54,7 @@
       modelViewer.src = base + '.glb';
       modelViewer["ios-src"] = base + '.usdz';
       modelViewer.poster = base + '.png';
+      console.log(modelViewer);
       const slides = document.querySelectorAll(".slide");
       slides.forEach((element) => {element.classList.remove("selected");});
       element.classList.add("selected");
