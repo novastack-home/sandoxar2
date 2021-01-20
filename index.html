@@ -15,12 +15,15 @@
   <div id="card">
     <model-viewer 
     src="./assets/house-2.glb" 
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-scale="auto"
+    camera-controls
+    alt="A 3D model carousel"
     ios-src = "./assets/house-2.usdz" 
     poster="./assets/house-2.png" 
     shadow-intensity="1" 
-    ar 
-    camera-controls
-    alt="A 3D model carousel">
+    >
   
       <button slot="ar-button" id="ar-button">
         View
