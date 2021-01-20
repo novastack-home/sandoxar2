@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>3D</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./styles/styles.css">
+  <script src="./scripts/focus-visible.js" defer></script>
+
+</head>
+
+<body>
+  <div id="card">
+    <model-viewer 
+    src="./assets/house.glb" 
+    ios-src = "./assets/house.usdz" 
+    poster="./assets/house.png" 
+    shadow-intensity="1" 
+    ar 
+    camera-controls
+    autoplay 
+    auto-rotate
+    alt="A 3D model carousel">
+  
+      <button slot="ar-button" id="ar-button">
+        View in your space
+      </button>
+    
+      <div id="ar-prompt">
+        <img src="./assets/hand.png">
+      </div>
+    
+      <div class="slider">
+        <div class="slides">
+          <button class="slide selected" onclick="switchSrc(this, 'house')" style="background-image: url('./assets/house.png');">
+    
+          </button><button class="slide" onclick="switchSrc(this, 'house-2')" style="background-image: url('./assets/house-2.png');">
+    
+          </button><button class="slide" onclick="switchSrc(this, 'tool')" style="background-image: url('./assets/tool.png');">
+
+        </button></div>
+      </div>
+    </model-viewer>
+  </div>
+  <script type="module" src="./scripts/model-viewer.min.js">
+  </script>
+  <script nomodule src="./scripts/model-viewer-legacy.js">
+  </script>
+  <script type="module">
+    const modelViewer = document.querySelector("model-viewer");
+  
+    window.switchSrc = (element, name) => {
+      const base = "./assets/" + name;
+      modelViewer.src = base + '.glb';
+      modelViewer["ios-src"] = base + '.usdz';
+      modelViewer.poster = base + '.png';
+      const slides = document.querySelectorAll(".slide");
+      slides.forEach((element) => {element.classList.remove("selected");});
+      element.classList.add("selected");
+    };
+  
+    document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
+      // Keep slider interactions from affecting the XR scene.
+      ev.preventDefault();
+    });
+  </script>
+</body>
+
+</html>
