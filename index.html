@@ -13,35 +13,30 @@
 
 <body>
   <div id="card">
-    <model-viewer 
-    src="./assets/tool.glb" 
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    ar-scale="auto"
-    camera-controls
-    alt="A 3D model carousel"
-    ios-src = "./assets/tool.usdz" 
-    poster="./assets/tool.png" 
-    shadow-intensity="1" 
-    >
-  
+    <model-viewer src="./assets/tool.glb" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls
+      alt="A 3D model carousel" ios-src="./assets/tool.usdz" poster="./assets/tool.png" shadow-intensity="1">
+
       <button slot="ar-button" id="ar-button">
         View
       </button>
-    
+
       <div id="ar-prompt">
         <img src="./assets/hand.png">
       </div>
-    
+
       <div class="slider">
         <div class="slides">
-          <button class="slide" onclick="switchSrc(this, 'house')" style="background-image: url('./assets/house.png');">
-    
-          </button><button class="slide" onclick="switchSrc(this, 'house-2')" style="background-image: url('./assets/house-2.png');">
-    
-          </button><button class="slide selected" onclick="switchSrc(this, 'tool')" style="background-image: url('./assets/tool.png');">
 
-        </button></div>
+          </button><button class="slide selected" onclick="switchSrc(this, 'tool')"
+            style="background-image: url('./assets/tool.png');">
+
+            <button class="slide" onclick="switchSrc(this, 'boombox')"
+              style="background-image: url('./assets/house.png');">
+
+            </button><button class="slide" onclick="switchSrc(this, 'damagedhelmet')"
+              style="background-image: url('./assets/house_2.png');">
+
+            </button></div>
       </div>
     </model-viewer>
   </div>
@@ -51,7 +46,7 @@
   </script>
   <script type="module">
     const modelViewer = document.querySelector("model-viewer");
-  
+
     window.switchSrc = (element, name) => {
       const base = "./assets/" + name;
       modelViewer.src = base + '.glb';
@@ -59,10 +54,10 @@
       modelViewer.poster = base + '.png';
       console.log(modelViewer);
       const slides = document.querySelectorAll(".slide");
-      slides.forEach((element) => {element.classList.remove("selected");});
+      slides.forEach((element) => { element.classList.remove("selected"); });
       element.classList.add("selected");
     };
-  
+
     document.querySelector(".slider").addEventListener('beforexrselect', (ev) => {
       // Keep slider interactions from affecting the XR scene.
       ev.preventDefault();
