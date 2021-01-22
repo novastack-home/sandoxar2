@@ -13,7 +13,7 @@
 
 <body>
   <div id="card">
-    <model-viewer src="./assets/tool.glb" ar ar-modes="webxr scene-viewer quick-look" ar-scale="auto" camera-controls alt="A 3D model carousel"
+    <model-viewer src="./assets/tool.glb" ar ar-scale="auto" camera-controls alt="A 3D model carousel"
       ios-src="./assets/tool.usdz" poster="./assets/tool.png" shadow-intensity="1">
 
       <button slot="ar-button" id="ar-button">
@@ -53,7 +53,7 @@
       modelViewer.src = base + '.glb';
       modelViewer["ios-src"] = base + '.usdz';
       cardDOM.innerHTML = `
-        <model-viewer src="${base}.glb" ar ar-scale="fixed" camera-controls alt="A 3D model carousel" ios-src="${base}.usdz" poster="${base}.png" shadow-intensity="1"> <button slot="ar-button" id="ar-button">
+        <model-viewer src="${base}.glb" ar ar-scale="auto" camera-controls alt="A 3D model carousel" ios-src="${base}.usdz" poster="${base}.png" shadow-intensity="1"> <button slot="ar-button" id="ar-button">
           AR View
         </button>
 
